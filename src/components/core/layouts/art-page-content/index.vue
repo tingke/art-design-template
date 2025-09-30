@@ -5,11 +5,6 @@
     <ArtFestivalTextScroll v-if="!isFullPage" />
 
     <RouterView v-if="isRefresh" v-slot="{ Component, route }" :style="contentStyle">
-      <!-- 路由信息调试 -->
-      <div v-if="isOpenRouteInfo === 'true'" class="route-info">
-        router meta：{{ route.meta }}
-      </div>
-
       <!-- 缓存路由动画 -->
       <Transition :name="showTransitionMask ? '' : actualTransition" mode="out-in" appear>
         <KeepAlive :max="10" :exclude="keepAliveExclude">
@@ -55,7 +50,6 @@
   const { keepAliveExclude } = storeToRefs(useWorktabStore())
 
   const isRefresh = shallowRef(true)
-  const isOpenRouteInfo = import.meta.env.VITE_OPEN_ROUTE_INFO
   const showTransitionMask = ref(false)
 
   // 检查当前路由是否需要使用无基础布局模式
@@ -120,16 +114,6 @@
     &.no-basic-layout {
       overflow: auto;
     }
-  }
-
-  .route-info {
-    padding: 6px 8px;
-    margin-bottom: 12px;
-    font-size: 14px;
-    color: var(--art-gray-600);
-    background: var(--art-gray-200);
-    border: 1px solid var(--art-border-dashed-color);
-    border-radius: 6px;
   }
 
   .full-page-mask {
