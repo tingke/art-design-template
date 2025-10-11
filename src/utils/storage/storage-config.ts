@@ -7,7 +7,7 @@ export class StorageConfig {
   static readonly CURRENT_VERSION = __APP_VERSION__
 
   /** 存储键前缀 */
-  static readonly STORAGE_PREFIX = 'sys-v'
+  static readonly STORAGE_PREFIX = import.meta.env.VITE_APP_NAMESPACE
 
   /** 版本键名 */
   static readonly VERSION_KEY = 'sys-version'
@@ -30,7 +30,7 @@ export class StorageConfig {
    * @param version 版本号，默认使用当前版本
    */
   static generateStorageKey(storeId: string, version: string = this.CURRENT_VERSION): string {
-    return `${this.STORAGE_PREFIX}${version}-${storeId}`
+    return `${this.STORAGE_PREFIX}-${version}-${storeId}`
   }
 
   /**
@@ -38,7 +38,7 @@ export class StorageConfig {
    * @param version 版本号，默认使用当前版本
    */
   static generateLegacyKey(version: string = this.CURRENT_VERSION): string {
-    return `${this.STORAGE_PREFIX}${version}`
+    return `${this.STORAGE_PREFIX}-${version}`
   }
 
   /**
@@ -53,7 +53,7 @@ export class StorageConfig {
    * 创建当前版本存储键匹配的正则表达式
    */
   static createCurrentVersionPattern(): RegExp {
-    return new RegExp(`^${this.STORAGE_PREFIX}${this.CURRENT_VERSION}-`)
+    return new RegExp(`^${this.STORAGE_PREFIX}-${this.CURRENT_VERSION}-`)
   }
 
   /**
@@ -67,7 +67,7 @@ export class StorageConfig {
    * 检查是否为当前版本的键
    */
   static isCurrentVersionKey(key: string): boolean {
-    return key.startsWith(`${this.STORAGE_PREFIX}${this.CURRENT_VERSION}`)
+    return key.startsWith(`${this.STORAGE_PREFIX}-${this.CURRENT_VERSION}`)
   }
 
   /**
@@ -75,21 +75,5 @@ export class StorageConfig {
    */
   static isVersionedKey(key: string): boolean {
     return key.startsWith(this.STORAGE_PREFIX)
-  }
-
-  /**
-   * 从存储键中提取版本号
-   */
-  static extractVersionFromKey(key: string): string | null {
-    const match = key.match(new RegExp(`^${this.STORAGE_PREFIX}([^-]+)`))
-    return match ? match[1] : null
-  }
-
-  /**
-   * 从存储键中提取存储ID
-   */
-  static extractStoreIdFromKey(key: string): string | null {
-    const match = key.match(new RegExp(`^${this.STORAGE_PREFIX}[^-]+-(.+)$`))
-    return match ? match[1] : null
   }
 }

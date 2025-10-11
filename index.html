@@ -25,7 +25,11 @@
             return
           }
 
-          const themeType = localStorage.getItem('sys-theme')
+          // 获取应用命名空间，默认为 'art-design-pro'
+          const namespace = '%VITE_APP_NAMESPACE%' || '%VITE_APP_TITLE%'
+          const themeKey = `${namespace}-sys-theme`
+
+          const themeType = localStorage.getItem(themeKey)
           if (themeType === 'dark') {
             document.documentElement.classList.add('dark')
           }

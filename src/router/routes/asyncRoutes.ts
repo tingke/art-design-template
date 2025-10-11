@@ -20,6 +20,7 @@ export const asyncRoutes: AppRouteRecord[] = [
   {
     name: 'Dashboard',
     path: '/dashboard',
+    // component: () => import('@/views/index/index.vue'),
     component: RoutesAlias.Layout,
     meta: {
       title: 'menus.dashboard.title',

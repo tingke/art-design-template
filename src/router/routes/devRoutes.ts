@@ -22,7 +22,7 @@ export const devRoutes: AppRouteRecordRaw[] = [
       {
         path: 'icon-list',
         name: 'DevIconList',
-        component: () => import('@/views/widgets/icon-list/index.vue'),
+        component: () => import('@/views/dev/icon-list/index.vue'),
         meta: {
           title: '图标列表',
           keepAlive: true

@@ -258,7 +258,7 @@
         workbook.Props = {
           Title: filename,
           Subject: '数据导出',
-          Author: props.workbookOptions.creator || 'Art Design Pro',
+          Author: props.workbookOptions.creator || import.meta.env.VITE_APP_TITLE,
           Manager: props.workbookOptions.lastModifiedBy || '',
           Company: '系统导出',
           Category: '数据',

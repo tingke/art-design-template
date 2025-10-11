@@ -42,7 +42,7 @@
 
 /**
 * css3动画
-* 
+*
 */
 @mixin animation(
   $from: (
@@ -144,9 +144,17 @@
   border: 1px solid $color;
 }
 
-// 背景滤镜
+// 背景滤镜-毛玻璃效果
 @mixin backdropBlur() {
   --tw-backdrop-blur: blur(30px);
+  --tw-backdrop-brightness: ;
+  --tw-backdrop-contrast: ;
+  --tw-backdrop-grayscale: ;
+  --tw-backdrop-hue-rotate: ;
+  --tw-backdrop-invert: ;
+  --tw-backdrop-opacity: ;
+  --tw-backdrop-saturate: ;
+  --tw-backdrop-sepia: ;
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness)
     var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate)
     var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate)

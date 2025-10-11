@@ -55,7 +55,9 @@
             <ElTableColumn label="姓名" prop="name" />
             <ElTableColumn label="角色" prop="role" />
             <ElTableColumn label="操作" width="100">
-              <ElButton size="default" class="handle"> 移动 </ElButton>
+              <ElButton size="default" class="handle">
+                <el-icon><Rank /></el-icon>
+              </ElButton>
             </ElTableColumn>
           </ArtTable>
         </VueDraggable>

@@ -76,3 +76,13 @@ pnpm build
 ![暗黑主题](https://www.qiniu.lingchen.kim/art_design_pro_readme_cover3.png)
 
 ![暗黑主题](https://www.qiniu.lingchen.kim/art_design_pro_readme_cover4.png)
+
+## todo
+
+- 拆分面板：https://fantastic-admin.hurui.me/basic-example/#/plugin_example/splitpanes
+- 货币格式输入：https://fantastic-admin.hurui.me/basic-example/#/plugin_example/currencyinput
+
+```css
+// 裁剪成箭头形状
+clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 0 100%, 8px 50%);
+```
