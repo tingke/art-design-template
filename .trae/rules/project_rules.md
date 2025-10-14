@@ -6,3 +6,4 @@
 4. 路由 ：Vue Router 4
 5. HTTP 请求 ：Axios
 6. 构建工具 ：Vite
+7. 包管理器 ：pnpm

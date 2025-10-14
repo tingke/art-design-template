@@ -101,7 +101,7 @@ export default ({ mode }: { mode: string }) => {
       Components({
         deep: true,
         extensions: ['vue'],
-        dirs: ['src/components'],
+        dirs: ['src/components', 'src/layouts'],
         resolvers: [ElementPlusResolver({ importStyle: false })],
         dts: 'src/types/components.d.ts'
       }),

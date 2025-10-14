@@ -92,7 +92,7 @@ const validateComponent = (route: AppRouteRecord, parentPath: string): void => {
   // 一级菜单：必须指定 Layout，除非是外链
   if (parentPath === '' && !hasExternalLink) {
     console.error(
-      `[路由错误] 一级菜单(${routePath}) 缺少 component，必须指向 ${RoutesAlias.Layout}`
+      `[路由错误] 一级菜单(${routePath}) 缺少 component，必须指向 AppLayout`
     )
     return
   }

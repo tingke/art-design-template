@@ -4,32 +4,33 @@
  */
 
 import { AppRouteRecordRaw } from '../utils/utils'
+import { RouterComponents } from '../routerComponents'
 
 /**
  * 开发环境路由配置
  * 这些路由仅在开发环境中可用
  */
 export const devRoutes: AppRouteRecordRaw[] = [
-  {
-    path: '/dev',
-    name: 'Dev',
-    component: () => import('@views/index/index.vue'),
-    meta: {
-      title: '开发环境',
-      icon: '&#xe628;'
-    },
-    children: [
-      {
-        path: 'icon-list',
-        name: 'DevIconList',
-        component: () => import('@/views/dev/icon-list/index.vue'),
+    {
+        path: '/dev',
+        name: 'Dev',
+        component: RouterComponents.AppLayout,
         meta: {
-          title: '图标列表',
-          keepAlive: true
-        }
-      }
-    ]
-  }
+            title: '开发环境',
+            icon: '&#xe628;'
+        },
+        children: [
+            {
+                path: 'icon-list',
+                name: 'DevIconList',
+                component: () => import('@/views/dev/icon-list/index.vue'),
+                meta: {
+                    title: '图标列表',
+                    keepAlive: true
+                }
+            }
+        ]
+    }
 ]
 
 export default devRoutes

@@ -4,7 +4,6 @@
 
 /** 路由别名 */
 export enum RoutesAlias {
-  Layout = '/index/index', // 布局容器
   Login = '/auth/login', // 登录
   Register = '/auth/register', // 注册
   ForgetPassword = '/auth/forget-password', // 忘记密码

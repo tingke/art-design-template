@@ -87,6 +87,8 @@ async function handleRouteGuard(
     NProgress.start()
   }
 
+  console.log('to', to)
+
   // 设置系统主题
   setSystemTheme(to)
 
@@ -248,7 +250,7 @@ function filterEmptyMenus(menuList: AppRouteRecord[]): AppRouteRecord[] {
     .filter((item) => {
       // 过滤掉布局组件且没有子菜单的项
       const isEmptyLayoutMenu =
-        item.component === RoutesAlias.Layout && (!item.children || item.children.length === 0)
+        item.component === 'AppLayout' && (!item.children || item.children.length === 0)
 
       // 过滤掉组件为空字符串且没有子菜单的项，但保留有外链的菜单项
       const isEmptyComponentMenu =
