@@ -1,47 +1,46 @@
 <!doctype html>
 <html>
-  <head>
-    <title>%VITE_APP_TITLE%</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
+    <head>
+        <title>%VITE_APP_TITLE%</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
 
-    <style>
-      /* 防止页面刷新时白屏的初始样式 */
-      html {
-        background-color: #fafbfc;
-      }
+        <style>
+            /* 防止页面刷新时白屏的初始样式 */
+            html {
+                background-color: #fafbfc;
+            }
 
-      html.dark {
-        background-color: #070707;
-      }
-    </style>
+            html.dark {
+                background-color: #070707;
+            }
+        </style>
 
-    <script>
-      // 初始化 html class 主题属性
-      ;(function () {
-        try {
-          if (typeof Storage === 'undefined' || !window.localStorage) {
-            return
-          }
+        <script>
+            // 初始化 html class 主题属性
+            ;(function () {
+                try {
+                    if (typeof Storage === 'undefined' || !window.localStorage) {
+                        return
+                    }
 
-          // 获取应用命名空间，默认为 'art-design-pro'
-          const namespace = '%VITE_APP_NAMESPACE%' || '%VITE_APP_TITLE%'
-          const themeKey = `${namespace}-sys-theme`
+                    // 获取应用命名空间，默认为 'art-design-pro'
+                    const themeKey = `sys-theme`
 
-          const themeType = localStorage.getItem(themeKey)
-          if (themeType === 'dark') {
-            document.documentElement.classList.add('dark')
-          }
-        } catch (e) {
-          console.warn('Failed to apply initial theme:', e)
-        }
-      })()
-    </script>
-  </head>
+                    const themeType = localStorage.getItem(themeKey)
+                    if (themeType === 'dark') {
+                        document.documentElement.classList.add('dark')
+                    }
+                } catch (e) {
+                    console.warn('Failed to apply initial theme:', e)
+                }
+            })()
+        </script>
+    </head>
 
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+    <body>
+        <div id="app"></div>
+        <script type="module" src="/src/main.ts"></script>
+    </body>
 </html>
