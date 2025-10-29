@@ -24,12 +24,7 @@ export const globalComponentsConfig: GlobalComponentConfig[] = [
         component: defineAsyncComponent(() => import('@/layouts/art-screen-lock/index.vue')),
         enabled: true
     },
-    {
-        name: '聊天窗口',
-        key: 'chat-window',
-        component: defineAsyncComponent(() => import('@/layouts/art-chat-window/index.vue')),
-        enabled: true
-    },
+
     {
         name: '礼花效果',
         key: 'fireworks-effect',

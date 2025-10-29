@@ -132,9 +132,8 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, onMounted } from 'vue'
+  import { ref, nextTick, onMounted, onUnmounted } from 'vue'
   import { Picture, Paperclip } from '@element-plus/icons-vue'
-  import { mittBus } from '@/utils/sys'
   import meAvatar from '@/assets/img/avatar/avatar5.webp'
   import aiAvatar from '@/assets/img/avatar/avatar10.webp'
   import avatar2 from '@/assets/img/avatar/avatar2.webp'
@@ -402,15 +401,14 @@
     }, 100)
   }
 
-  const openChat = () => {
-    isDrawerVisible.value = true
-  }
-
   onMounted(() => {
     scrollToBottom()
-    mittBus.on('openChat', openChat)
 
     selectedPerson.value = personList.value[0]
+  })
+
+  onUnmounted(() => {
+    // 清理逻辑
   })
 </script>
 

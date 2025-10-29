@@ -6,7 +6,6 @@ import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { fileURLToPath } from 'url'
-import vueDevTools from 'vite-plugin-vue-devtools'
 // import { visualizer } from 'rollup-plugin-visualizer'
 
 export default ({ mode }: { mode: string }) => {
@@ -18,7 +17,6 @@ export default ({ mode }: { mode: string }) => {
         VITE_BASE_URL,
         VITE_API_URL,
         VITE_API_PROXY_URL,
-        VITE_ENABLE_DEVTOOLS,
         VITE_ENABLE_COMPRESSION
     } = env
 
@@ -131,8 +129,7 @@ export default ({ mode }: { mode: string }) => {
                     ext: '.gz', // 压缩后的文件名后缀
                     threshold: 10240, // 只有大小大于该值的资源会被处理 10240B = 10KB
                     deleteOriginFile: false // 压缩后是否删除原文件
-                }),
-            VITE_ENABLE_DEVTOOLS === 'true' && vueDevTools()
+                })
             // 打包分析
             // visualizer({
             //   open: true,
